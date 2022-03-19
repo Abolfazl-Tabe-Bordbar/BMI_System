@@ -4,8 +4,8 @@ var section_get_user_name = document.getElementById("section_get_user_name");
 gsap.from("#section_get_user_name", { opacity: 0, y: 100, duration: 1 });
 var section_get_user_date = document.getElementById("section_get_user_date");
 var user_name_error = document.getElementById("user_name_error");
-var input_user_height  = document.getElementById("user_height");
-var input_user_weight  = document.getElementById("user_weight");
+var input_user_height = document.getElementById("user_height");
+var input_user_weight = document.getElementById("user_weight");
 var user_height = 0;
 var user_weight = 0;
 var BMI = 0;
@@ -16,6 +16,7 @@ var show_user_name = document.getElementById("show_user_name");
 var show_description = document.getElementById("show_description");
 var description = null;
 var user_data_error = document.getElementById("user_data_error");
+var reset = document.getElementById("reset");
 start.addEventListener("click", function () {
   var check_name = user_name.value;
   check_name = check_name.trim();
@@ -32,19 +33,19 @@ start.addEventListener("click", function () {
 });
 
 computing.addEventListener("click", function () {
-    var check_height = input_user_height.value;
-    check_height = check_height.trim(); 
-    var check_weight = input_user_weight.value;
-    check_weight = check_weight.trim(); 
+  var check_height = input_user_height.value;
+  check_height = check_height.trim();
+  var check_weight = input_user_weight.value;
+  check_weight = check_weight.trim();
   if (check_height == "") {
-      user_data_error.innerHTML = "فیلد قد نمی تواند خالی باشد";
-  }else if(check_weight == ""){
+    user_data_error.innerHTML = "فیلد قد نمی تواند خالی باشد";
+  } else if (check_weight == "") {
     user_data_error.innerHTML = "فیلد وزن  نمی تواند خالی باشد";
-  }else if(check_height == 0){
+  } else if (check_height == 0) {
     user_data_error.innerHTML = "فیلد قد  نمی تواند 0 باشد";
-  }else if(check_weight == 0){
+  } else if (check_weight == 0) {
     user_data_error.innerHTML = "فیلد وزن  نمی تواند 0 باشد";
-  }else{
+  } else {
     user_height = input_user_height.value;
     user_weight = input_user_weight.value;
     section_get_user_date.style.display = "none";
@@ -74,7 +75,10 @@ computing.addEventListener("click", function () {
     } else {
       description = "توصیه ای وجود ندارد";
     }
-  
+
     show_description.innerHTML = description;
   }
+});
+reset.addEventListener("click", function () {
+  location.reload();
 });
